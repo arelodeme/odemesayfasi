@@ -1,0 +1,1458 @@
+let menudata;
+let processid="";
+let stepid="";
+let pageid="";
+let valid=true;
+let tableitems=[]
+let tabledata={}
+let tabledeletedata={}
+let uid=Date.now();
+let formcloasetype='G';
+let RadioSelectGroup={}
+function open_loader(process='O'){
+	let loader='<div id="artekloader" class="text-center artekloader" style="width: 100%;position: absolute;height: 100vh;z-index: 9999;background-color: black;opacity: 0.5;">' +
+		'<div class="spinner-border text-danger" role="status" style="font-size30px;margin:25%">' +
+		'</div>' +
+		'</div>';
+	if(process=='O'){
+		$(loader).prependTo("body");
+	}else{
+		$("#artekloader").remove()
+	}
+}
+function $v(itemname){
+    return $("#"+itemname).val();
+}
+function validateEmail(item) {
+    var email = $("#" + item).val();
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    if (!emailReg.test(email)) {
+        $("#" + item).val('');
+        $("#" + item).addClass('is-invalid');
+    }
+}
+function set_required(item){
+    page_items.forEach(function(v,k){
+        if(v.itemdefname==item){
+            page_items[k]["itemdefrequired"]='Y';
+            $("#LBL_"+item).prepend('<span class="text-danger">*</span>')
+        }
+    });
+
+}
+function remove_required(item){
+    page_items.forEach(function(v,k){
+        if(v.itemdefname==item){
+            page_items[k]["itemdefrequired"]='N';
+            $("#LBL_"+item+' .text-danger').remove();
+        }
+    });
+
+}
+
+function formatPhoneNumber(item) {
+    var phoneNumberString=$("#"+item).val()
+  var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+  var match = cleaned.match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/)
+  if (match) {
+      if(match[1].substring(0, 1)=="5"){
+        return '(' + match[1] + ') ' + match[2] + ' ' + match[3]+ ' ' + match[4];
+      }else{
+        return null;
+      }
+  }
+  return null;
+}
+function OnlyNumber(input) {
+    var value = input.value.replace(',','.');
+    numbers=value.replace(/[^0-9.]/g, "");
+    input.value = numbers;
+}
+function isNumberKey(evt) {
+	var charCode = (evt.which) ? evt.which : evt.keyCode;
+    return !(charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57));
+}
+function disable_all() {
+    var inputs = $('#frm_txt input, #frm_txt select');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = true;
+    }
+}
+function set_readonly(alan) {
+    $("#" + alan).attr("disabled", true);
+}
+function remove_readonly(alan) {
+    $("#" + alan).attr("disabled", false);
+}
+function jsuuid() {
+   var dt = new Date().getTime();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (dt + Math.random() * 16) % 16 | 0;
+        dt = Math.floor(dt / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+function format_date(veri) {
+  try {
+    var b = veri.split('T');
+    var a = b[0].split('-')
+    return a[2] + "-" + a[1] + "-" + a[0]
+  } catch (e) {
+    return "";
+  }
+}
+function format_datetime(veri) {
+  try {
+    var b = veri.split('T');
+    var a = b[0].split('-')
+    var c=b[1].split('.')
+    return a[2] + "-" + a[1] + "-" + a[0] + " " + c[0]
+  } catch (e) {
+    return "";
+  }
+}
+function format_number(n,z) {
+    return n.toFixed(z).replace(/./g, function(c, i, a) {
+        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    });
+}
+function get_todate(lang="tr") {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //january is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+    if(lang=="tr"){
+        today = dd + '-' + mm + '-' + yyyy;
+    }else{
+        today = yyyy + '-' + mm + '-' + dd;
+    }
+  return today;
+}
+function get_add_todate(lang="tr",adddate=15) {
+  var today = new Date();
+  today.setDate(today.getDate() + adddate);
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //january is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+    if(lang=="tr"){
+        today = dd + '-' + mm + '-' + yyyy;
+    }else{
+        today = yyyy + '-' + mm + '-' + dd;
+    }
+  return today;
+}
+function get_today() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //january is 0!
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+
+  today = mm;
+  return today;
+}
+function get_thisyer() {
+  var today = new Date();
+  return today.getFullYear();
+}
+function get_thismounth() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //january is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+
+  today = mm;
+  return today;
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds) {
+      break;
+    }
+  }
+}
+function secondstotime(secs) {
+  var hours = math.floor(secs / (60 * 60));
+  var divisor_for_minutes = secs % (60 * 60);
+  var minutes = math.floor(divisor_for_minutes / 60);
+  var divisor_for_seconds = divisor_for_minutes % 60;
+  var seconds = math.ceil(divisor_for_seconds);
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  return  hours + ":" + minutes + ":" + seconds
+}
+function getWeekNumber(d) {
+  // Copy date so don't modify original
+  d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  // Set to nearest Thursday: current date + 4 - current day number
+  // Make Sunday's day number 7
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  // Get first day of year
+  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  // Calculate full weeks to nearest Thursday
+  return  Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+
+}
+function item_show(itemname){
+    $("#INP_"+itemname).removeClass('hide_itm');
+}
+function item_hide(itemname){
+    $("#"+itemname).val('');
+    $("#INP_"+itemname).addClass('hide_itm');
+}
+function get_urlparameter(name) {
+  var url_string = window.location.href
+  var url = new URL(url_string);
+  return url.searchParams.get(name);
+}
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function serilaize_form(data) {
+  datas = {};
+  $.each(data, function(i, itm) {
+    datas[itm.name.replace('frm_','')] = itm.value;
+  });
+
+  return datas;
+}
+function changed(itemname){
+  try {
+    var fn = itemname + "_onchange()";
+    eval(fn);
+  } catch (e) {
+    try{
+      var fn = itemname + "_onclick()";
+      eval(fn);
+    }catch (e){
+
+    }
+  }
+
+}
+function nav_vertical_select(itemname,id) {
+    console.log(itemname)
+    $("." + itemname).removeClass('secim');
+    $("#id_" + id).addClass('secim');
+}
+let SearchModalFunction="";
+let SearchModalWhereClause="";
+async function SearchModalOpen(FunctionName, WhereClause,titletext="Arama", SearchInput = 'Y') {
+    $("#TXT_SEARCHMODALINPUT").val('');
+    if (SearchInput == 'N') {
+        $("#SearchModalSearchInputDiv").hide();
+    }
+
+    SearchModalFunction = FunctionName;
+    SearchModalWhereClause = WhereClause;
+    
+    /*
+    await SearchModalGetData().then(a => {
+        $("#SearchModalTitle").empty().append(titletext);
+        $("#SearchModal").modal('show');
+    })
+    */
+
+    async function processData() {
+      try {
+          const rows = await SearchModalGetData();
+          if (rows !== null) {
+            $("#SearchModalTitle").empty().append(titletext);
+            $("#SearchModal").modal('show');
+          } else {
+            console.log('Null Data');
+          }
+      } catch (error) {
+          console.error(error);
+      }
+    }
+  
+    processData();
+    
+
+    
+    
+}
+/*
+async function SearchModalGetData(){
+    open_loader('O');
+    let b = {};
+    b["txt_searchstring"] = $("#TXT_SEARCHMODALINPUT").val();
+    b["txt_function"] = SearchModalFunction;
+    b["txt_whereclause"] = SearchModalWhereClause;
+     var sdata = '{"request":"3001","menuid":"0","usercode":"'+sessionStorage.usercode+'","data":' + JSON.stringify(b) + '}';
+     fetch("/api/restapi", {
+        headers: {"Content-Type": "application/json; charset=utf-8","token":token},
+        method: 'POST',
+        body: sdata
+    }).then(response => response.json())
+        .then(data => {
+            if (data.success == false) {
+                Swal.fire({
+                    title: '',
+                    html: data.mesajtxt,
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'Tamam'
+                });
+
+            } else {
+                if(data.rows === null) {
+                  Swal.fire('Veri Bulunamadı.', '', 'error');
+                  $("#SearchModalResult").empty();
+                  return;
+
+                }
+                var snctbl = '<table class="table table-hover table-sm">';
+
+                ///Header Kısmı
+                snctbl += '<tr>';
+                for (var k in data.rows[0]) {
+                    if(k=='button'){
+                        snctbl += '<th></th>';
+                    }else if (k != 'onclick') {
+                        snctbl += '<th>' + k.toUpperCase() + '</th>';
+                    }
+                }
+                snctbl += '</tr>';
+                //Header Kısmı End
+                data.rows.forEach(function (v, i) {
+                    try{
+                        snctbl += '<tr onclick="' + v["onclick"] + '">';
+                    }catch (e){
+                        snctbl += '<tr>';
+                    }
+                    for (var kk in v) {
+                        if (kk == 'button') {
+                          snctbl += '<td><a class="btn btn-default btn-sm" href=" ' + v[kk] + '"><i class="fa-edit"></i></a></td>';
+                        }else if (kk != 'onclick') {
+                            snctbl += '<td>' + v[kk] + '</td>';
+                        }
+                    }
+                    snctbl += '</tr>'
+                });
+
+                snctbl += '</table>';
+                $("#SearchModalResult").empty().append(snctbl);
+                return data.rows;
+            }
+
+        }).then(open_loader('C')).catch(err => {
+        Swal.fire('Beklenmeyen Hata', err, 'error');
+
+    });
+}
+*/
+async function SearchModalGetData() {
+  open_loader('O');
+  
+  let b = {};
+  b["txt_searchstring"] = $("#TXT_SEARCHMODALINPUT").val();
+  b["txt_function"] = SearchModalFunction;
+  b["txt_whereclause"] = SearchModalWhereClause;
+  var sdata = '{"request":"3001","menuid":"0","usercode":"'+sessionStorage.usercode+'","data":' + JSON.stringify(b) + '}';
+
+  try {
+      const response = await fetch("/api/restapi", {
+          headers: {"Content-Type": "application/json; charset=utf-8","token":token},
+          method: 'POST',
+          body: sdata
+      });
+      const data = await response.json();
+
+      if (data.success == false) {
+          Swal.fire({
+              title: '',
+              html: data.mesajtxt,
+              type: 'error',
+              showCancelButton: false,
+              confirmButtonText: 'Tamam'
+          });
+          return null; 
+      } else {
+          if(data.rows === null) {
+              Swal.fire('Veri Bulunamadı.', '', 'error');
+              $("#SearchModalResult").empty();
+              return null;
+          }
+          var snctbl = '<table class="table table-hover table-sm">';
+
+          ///Header Kısmı
+          snctbl += '<tr>';
+          for (var k in data.rows[0]) {
+              if(k=='button'){
+                  snctbl += '<th></th>';
+              }else if (k != 'onclick') {
+                  snctbl += '<th>' + k.toUpperCase() + '</th>';
+              }
+          }
+          snctbl += '</tr>';
+          //Header Kısmı End
+          data.rows.forEach(function (v, i) {
+              try{
+                  snctbl += '<tr onclick="' + v["onclick"] + '">';
+              }catch (e){
+                  snctbl += '<tr>';
+              }
+              for (var kk in v) {
+                  if (kk == 'button') {
+                    snctbl += '<td><a class="btn btn-default btn-sm" href=" ' + v[kk] + '"><i class="fa-edit"></i></a></td>';
+                  }else if (kk != 'onclick') {
+                      snctbl += '<td>' + v[kk] + '</td>';
+                  }
+              }
+              snctbl += '</tr>'
+          });
+
+          snctbl += '</table>';
+          $("#SearchModalResult").empty().append(snctbl);
+          return data.rows;
+      }
+  } catch (error) {
+      Swal.fire('Beklenmeyen Hata', error, 'error');
+      return null; 
+  } finally {
+      open_loader('C');
+  }
+}
+function android_qrread(mesaj){
+    var iserror=false;
+    try{
+        app.qr_oku(mesaj);    
+    }catch (e) {
+        iserror=true;
+    }
+    try{
+        if(iserror){
+            window.webkit.messageHandlers.ios.postMessage("qroku");
+        }
+    }catch (e) {
+         iserror=true;
+    }
+    try{
+        if(iserror){
+            window.location.href = "ios:qroku";
+        }
+    }catch (e) {
+
+    }
+    
+    return false;
+}
+function ios_qrread() {
+    window.location.href = "ios:qroku";
+    return false;
+}
+async function server_proses(querynum,prms){
+    var sdata = '{"request":"'+querynum+'","usercode":"'+sessionStorage.usercode+'","data":' + JSON.stringify(prms) + '}';
+    var snc=await fetch("/api/restapi", {
+        headers: {"Content-Type": "application/json; charset=utf-8","TOKEN":token},
+        method: 'POST',
+        body: sdata
+    })
+        .then(response => response.json())
+    return snc;
+}
+async function select_item_update(itemname,whereclause){
+    try{
+        var value=page_data[0][itemname];
+    }catch (e){
+        var value="";
+    }
+
+    var b = {}
+    b["txt_pageid"]=pageid.toString();
+    b["txt_itemname"]=itemname;
+    b["txt_whereclause"]=whereclause;
+    var sdata = '{"request":"3000","usercode":"'+sessionStorage.usercode+'","data":' + JSON.stringify(b) + '}';
+    var snc=await fetch("/api/restapi", {
+        headers: {"Content-Type": "application/json; charset=utf-8","TOKEN":token},
+        method: 'POST',
+        body: sdata
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success == false) {
+                Swal.fire('', data.mesajtxt, 'error');
+            } else {
+                var selectres='<option value="">Lütfen Seçiniz</option>';
+                data.rows.forEach(function(v,k){
+                    if(value==v.idkey){
+                        selectres+='<option selected value="'+v.idkey+'">'+v.valkey+'</option>';
+                    }else{
+                        selectres+='<option value="'+v.idkey+'">'+v.valkey+'</option>';
+                    }
+
+                });
+                $("#"+itemname).empty().append(selectres);
+            }
+        })
+        .catch(err => {
+        console.log(err)
+        //Swal.fire('Veri Bulunamadı',err,'error')
+    });
+
+
+}
+async function get_html_response(itemname,whereclause){
+    var b = {}
+    b["txt_pageid"]=pageid.toString();
+    b["txt_itemname"]=itemname;
+    b["txt_whereclause"]=whereclause;
+    var sdata = '{"request":"1001","usercode":"'+sessionStorage.usercode+'","data":' + JSON.stringify(b) + '}';
+    await fetch("/api/htmlapi", {
+        headers: {"Content-Type": "application/json; charset=utf-8","TOKEN":token},
+        method: 'POST',
+        body: sdata
+    })
+        .then(response => response.text())
+        .then(function (html) {
+            $("#INP_"+itemname).empty().append(html)
+        })
+        .catch(err => {
+        console.log(err)
+        //Swal.fire('Önemli Hata',err,'error')
+    });
+
+
+}
+function KeyValueTable_Update(itemname,whereclause){
+    get_html_response(itemname,whereclause);
+}
+function HtmlTable_Update(itemname,whereclause){
+   get_html_response(itemname,whereclause);
+}
+function RadioGroup_Update(itemname,whereclause){
+   get_html_response(itemname,whereclause);
+}
+function CheckboxGrpup_Update(itemname,whereclause){
+   get_html_response(itemname,whereclause);
+}
+function WidgetLink_Update(itemname,whereclause){
+   get_html_response(itemname,whereclause);
+}
+const swalToast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: false,
+      timer: 3000
+    });
+/*Pages Save Delete And Set Data*/
+$("#btn_savepage").click(function () {
+    	Swal.fire({
+            title: '',
+            text: "Bilgiler kayıt edilsin mi?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Kaydet'
+        }).then((result) => {
+            if (result.value) {
+                open_loader('O');
+                $("btn_savepage").attr("disabled", true);
+                try{
+                    onsubmit();
+                }catch (e) {
+                    save_page();
+                }
+
+            }
+        })
+
+});
+$("#btn_deletepage").click(function () {
+        proccess='Delete';
+    	Swal.fire({
+            title: '',
+            text: "Kayıt Silinsin mi?",
+            icon: 'error',
+            showCancelButton: true,
+            cancelButtonText: "İptal",
+            confirmButtonText: 'Sil',
+            confirmButtonColor: '#d63939',
+            cancelButtonColor:'#206bc4'
+        }).then((result) => {
+            if (result.value) {
+                open_loader('O');
+                $("btn_savepage").attr("disabled", true);
+                delete_page();
+            }
+        })
+
+});
+function save_page(mesaj='Bilgileriniz Başarı İle Kayıt Edildi.',endurl=""){
+    btn_locked(true);
+    valid=true;
+    tabledata={};
+    tabledeletedata={};
+    $(".is-invalid").removeClass('is-invalid');
+  setTimeout(function () {
+    formarr = [];
+    page_items.forEach(function (v, k) {
+      var formdata = {};
+      /*zorunlu alan kontrolü*/
+      if (v.itemdefrequired == "Y" && !$("#" + v.itemdefname).is(":hidden") || v.itemdefrequired == "Y" && v.itemdeftype == "TextSummer" && !$("#INP_" + v.itemdefname).is(":hidden")) {
+        //zorunlu alanlar
+        console.log(v.itemdefname);
+        switch (v.itemdeftype) {
+          case "Button":
+          case "KeyValueTable":
+          case "HtmlTable":
+          case "Image":
+          case "Table":
+          break;
+          case "EditTable":
+              tabledata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["data_"+v.itemdefname])});
+              tabledeletedata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["deleted_"+v.itemdefname])});
+          break;
+          case "EditTableInLine":
+              tabledata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["data_"+v.itemdefname])});
+              tabledeletedata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["deleted_"+v.itemdefname])});
+          break;
+          case "File":
+            if($("#blob_" + v.itemdefname).val() != "" && $("#blob_" + v.itemdefname).val() != "[]") {
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = $("#blob_" + v.itemdefname).val();
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            } else {
+              valid = false;
+              $("#" + v.itemdefname).addClass('is-invalid');
+            }
+          break;
+          case "TextSummer":
+            var summernoteValue = $("#" + v.itemdefname).summernote('code');
+            var cleanValue = summernoteValue.replace(/<\/?[^>]+(>|$)/g, "");
+            if(cleanValue.trim() == "") {
+                valid = false;
+                $("#" + v.itemdefname).addClass('is-invalid');
+            } else {
+                $("#" + v.itemdefname).addClass('is-valid');
+                formdata["itemname"] = v.itemdefname;
+                formdata["itemvalue"] = $("#" + v.itemdefname).val().replace(/'/g, '’');
+                formdata["itemtype"] = v.itemdeftype;
+                formarr.push(formdata)
+            }
+            break;
+            case "CheckboxLink":
+            case "Checkbox":
+            if ($('#' + v.itemdefname).is(':checked')) {
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = "Y";
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            } else {
+              valid = false;
+              $("#" + v.itemdefname).addClass('is-invalid');
+            }
+            break;
+          case "Select2Multiple":
+             if (!$.trim($("#" + v.itemdefname).val())) {
+              valid = false;
+              $("#" + v.itemdefname).addClass('is-invalid');
+
+            } else {
+              var valofselect=$("#" + v.itemdefname).val().join();
+              $("#" + v.itemdefname).addClass('is-valid');
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = valofselect;
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            }
+          break;
+          default:
+            if (!$.trim($("#" + v.itemdefname).val())) {
+              valid = false;
+              $("#" + v.itemdefname).addClass('is-invalid');
+
+            } else {
+              $("#" + v.itemdefname).addClass('is-valid');
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = $("#" + v.itemdefname).val().replace('"','').replace('\'','').replace(/[\r\n]/g, "<br />");
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            }
+            break;
+        }
+
+      } else {
+        switch (v.itemdeftype) {
+          case "Table":
+          case "Button":
+          case "KeyValueList":
+          case "Image":
+          case "HtmlTable":
+          case "KeyValueTable":
+          break;
+          case "EditTable":
+              try{
+                tabledata[v.itemdefname]=JSON.parse(sessionStorage["data_"+v.itemdefname]);
+              }catch (e){
+                  tabledata[v.itemdefname]=[];
+              }
+              try{
+                tabledeletedata[v.itemdefname]=JSON.parse(sessionStorage["deleted_"+v.itemdefname]);
+              }catch (e){
+                 tabledeletedata[v.itemdefname]=[];
+              }
+              /*tabledata.push({"tablename":v.itemdefname,"tablevalue":sessionStorage["data_"+v.itemdefname])})
+              tabledeletedata[v.itemdefname]=sessionStorage["deleted_"+v.itemdefname];*/
+          break;
+          case "EditTableInLine":
+              try{
+                tabledata[v.itemdefname]=JSON.parse(sessionStorage["data_"+v.itemdefname]);
+              }catch (e){
+                  tabledata[v.itemdefname]=[];
+              }
+              try{
+                tabledeletedata[v.itemdefname]=JSON.parse(sessionStorage["deleted_"+v.itemdefname]);
+              }catch (e){
+                 tabledeletedata[v.itemdefname]=[];
+              }
+              /*tabledata.push({"tablename":v.itemdefname,"tablevalue":sessionStorage["data_"+v.itemdefname])})
+              tabledeletedata[v.itemdefname]=sessionStorage["deleted_"+v.itemdefname];*/
+          break;
+          case "File":
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = $("#blob_" + v.itemdefname).val();
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          break;
+          case "Checkbox":
+            if ($('#' + v.itemdefname).is(':checked')) {
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = "Y";
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            } else {
+              formdata["itemname"] = v.itemname;
+              formdata["itemvalue"] = "N";
+              formdata["itemype"] = v.itemtype;
+              formarr.push(formdata)
+
+            }
+            break;
+          case "Select2Multiple":
+              if ($("#" + v.itemdefname).val() != null){
+                  var valofselect=$("#" + v.itemdefname).val().join();
+              }
+
+              else {
+                var valofselect=$("#" + v.itemdefname).val();
+              }
+              $("#" + v.itemdefname).addClass('is-valid');
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = valofselect;
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+
+          break;
+          case "TextSummer":
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = $("#" + v.itemdefname).val().replace(/'/g, '’');
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          break;
+          default:
+			console.log(v.itemdefname+' : '+$("#" + v.itemdefname).val());
+			let itmval=$("#" + v.itemdefname).val();
+			if(itmval!=undefined && itmval!='') itmval=itmval.replace('\'','');
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = itmval;
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+            break;
+        }
+
+      }
+
+    });
+
+    if (valid) {      
+      b = {}
+      b["txt_pageid"] = pageid.toString();
+      b["txt_process"] = "Save";
+      b["txt_uid"] = uid.toString();
+      b["txt_usercode"] = sessionStorage.usercode;
+      b["txt_formdata"] = formarr;
+      b["txt_tabledata"] = tabledata;
+      b["txt_tabledeletedata"] = tabledeletedata;
+      var sdata = '{"request":"3003","kulkod":"' + sessionStorage.usercode + '","data":' + JSON.stringify(b) + '}';
+      var snc = fetch("/pages/save", {
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        method: 'POST',
+        body: sdata
+      })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success == false) {
+                open_loader('C');
+                Swal.fire('', data.mesajtxt, 'error').then(result => {  
+                  console.log('false api');  
+                  btn_locked(false);      
+                  return false;                  
+              });
+                
+            } else {
+              open_loader('C');
+               if(endurl.length>3){
+                   location.href=endurl;
+               }else {                
+                   swalToast.fire({icon: 'success', title: mesaj}).then(result => {
+                       parent.location.reload();                       
+                   });
+               }
+            }
+          })
+          .catch(err => {
+            console.log(err);
+            open_loader('C');
+
+          });
+
+
+    } else {
+      open_loader('C');
+      $("btn_savepage").attr("disabled", false);
+      swalToast.fire({
+        icon: 'error',
+        title: 'Eksik Bilgiler Mevcut Lütfen Kontrol ediniz.'
+      });
+      console.log('false api');
+      btn_locked(false);
+      return false;
+    }
+  }, 500);
+
+}
+function delete_page(){
+    $(".is-invalid").removeClass('is-invalid');
+  setTimeout(function () {
+    formarr = [];
+    page_items.forEach(function (v, k) {
+      var formdata = {};
+        switch (v.itemdeftype) {
+          case "Table":
+          case "KeyValueList":
+          case "Image":
+          case "SqlTable":
+          case "KeyValueTable":
+          break;
+          case "File":
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = $("#blob_" + v.itemdefname).val();
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          break;
+          case "Checkbox":
+            if ($('#' + v.itemdefname).is(':checked')) {
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = "Y";
+              formdata["itemtype"] = v.itemdeftype;
+              formarr.push(formdata)
+            } else {
+              formdata["itemname"] = v.itemdefname;
+              formdata["itemvalue"] = "N";
+              formdata["itemype"] = v.itemdeftype;
+              formarr.push(formdata)
+
+            }
+            break;
+          default:
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = $("#" + v.itemdefname).val();
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+            break;
+        }
+    });
+
+
+      b = {}
+      b["txt_pageid"] = pageid.toString();
+      b["txt_process"] = "Delete";
+      b["txt_uid"] = uid.toString();
+      b["txt_usercode"] = sessionStorage.usercode;
+      b["txt_formdata"] = formarr;
+      b["txt_tabledata"] = tabledata;
+      b["txt_tabledeletedata"] = tabledeletedata;
+      var sdata = '{"request":"3003","kulkod":"' + sessionStorage.usercode + '","data":' + JSON.stringify(b) + '}';
+      var snc = fetch("/pages/save", {
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        method: 'POST',
+        body: sdata
+      })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success == false) {
+                Swal.fire('', data.mesajtxt, 'error');
+                open_loader('C');
+            } else {
+              open_loader('C');
+              swalToast.fire({
+                      icon: 'success',
+                      title: 'Bilgileriniz Başarı Silindi.'
+                    }).then(result => {
+                       /* parent.open_from('C','',refresh=formcloasetype);*/
+                        parent.location.reload();  
+                  });
+            }
+          })
+          .catch(err => {
+            console.log(err);
+            open_loader('C');
+
+          });
+
+
+
+  }, 500);
+
+}
+function set_pagedata() {
+    let pd = page_data[0]
+    let x = 150;
+    try {
+
+            page_items.forEach(function (v, k) {
+                switch (v.itemdeftype) {
+                    case "Table":
+                    case "KeyValueList":
+                    case "Image":
+                    case "SqlTable":
+                    case "HtmlTable":
+                    case "KeyValueTable":
+                        break;
+                    case "Html":
+                        $("#INP_" + v.itemdefname).empty().append(pd[v.itemdefname])
+                        break;
+                    case "File":
+                        try{
+                        if (pd[v.itemdefname]) {
+                            $("#blob_" + v.itemdefname).val(JSON.stringify(pd[v.itemdefname]));
+                            show_uploaded_files(pd[v.itemdefname], v.itemdefname);
+                        }
+                        }catch (e) {
+                            
+                        }
+                        break;
+                    case "Checkbox":
+                        try{
+                        if (pd[v.itemdefname] == "Y") {
+                            $('#' + v.itemdefname).prop('checked', true);
+                        }
+                        }catch (e) {
+                            
+                        }
+                        break;
+                    case "Select":
+                        setTimeout(function () {
+                            try {
+                                $("#" + v.itemdefname).val(pd[v.itemdefname]).change();
+                            } catch (e) {
+                            }
+                        }, x);
+                        break;
+                    case "Select2":
+                        setTimeout(function () {
+                            try {
+                                $("#" + v.itemdefname).val(pd[v.itemdefname]).change();
+                            } catch (e) {
+                            }
+                        }, x);
+                        break;
+                    case "Select2Multiple":
+                        setTimeout(function () {
+                            try {
+                                var arr = pd[v.itemdefname].split(',');
+                                $("#" + v.itemdefname).val(arr);
+                            } catch (e) {
+                            }
+                        }, x);
+
+                        setTimeout(function () {
+                            $("#" + v.itemdefname).trigger('change');
+                        }, x + 10);
+                        break;
+                    case "TextSummer":
+                        try {
+                        $("#" + v.itemdefname).html(pd[v.itemdefname]);
+                        } catch (e) {
+
+                        }
+                        break;
+                    case "Number":
+                        try {
+                            $("#" + v.itemdefname).val(pd[v.itemdefname].toFixed(2)).change();
+                        } catch (e) {
+                            try{
+                            $("#" + v.itemdefname).val(pd[v.itemdefname]).change();
+                            }catch (eeee){
+
+                            }
+                        }
+                        break;
+
+
+                    default:
+                        try {
+                            $("#" + v.itemdefname).val(pd[v.itemdefname]).change();
+                        } catch (e) {
+                        }
+                        break;
+                }
+            });
+
+    } catch (e) {
+        console.log(e);
+    }
+    setTimeout(function () {
+        open_loader('C');
+    }, x);
+
+}
+function modal_page_open(pageid,prm=[]){
+   // [{"itemnam":"barkodkod","itemvalue":"DMAKA"},{"itemname":"demirbasadi","itemvalue":"sakjdgasjkghdj"}]
+    var getpost='?';
+    try{
+        if(prm.length>0){
+            prm.forEach(function(v,k){
+                getpost+=v.itemname+'='+v.itemvalue;
+            });
+        }
+    }catch(e){
+        console.log(e);
+    }
+    var frame='<iframe src="/pages/'+pageid+'/0"'+getpost+' name="ModalPageModalIframe" id="ModalPageModalIframe" frameborder="0" scrolling="no" width="100%" height="500px" class="frame-surec-css"></iframe>'
+    $("#ModalPageModalBody").empty().append(frame)
+    $("#ModalPageModal").modal('show')
+}
+function set_radio_group(itemname,id){
+    RadioSelectGroup[itemname]=id;
+}
+function set_checkbox_group(itemname,id){
+    return $("#"+itemname+"_"+id).is(":checked");
+}
+$(".ArtekFileUpload").on('change',function(){
+    open_loader('O')
+    var alan = $(this).attr("id");
+    var file = document.getElementById(alan).files[0];
+    var fd = new FormData();
+    fd.append(alan, file);
+    fd.append(alan, file, file.name);
+    fd.append("filename", file.name);
+
+    fetch("/api/uploadfile?PROCESS=ADD&ITEMNAME="+alan, {
+        method: 'POST',
+        enctype: 'multipart/form-data',
+        body: fd
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success==true){
+            var c=[]
+            var ykldosya=$("#blob_"+alan).val();
+            if(ykldosya==""){
+                c.push({"FileMime":data.filedata.FileMime,"FileName":data.filedata.FileName,"Filelocation":data.filedata.Filelocation});
+            }else{
+                c=JSON.parse(ykldosya);
+                c.push({"FileMime":data.filedata.FileMime,"FileName":data.filedata.FileName,"Filelocation":data.filedata.Filelocation});
+            }
+            $("#blob_"+alan).val(JSON.stringify(c));
+            $("#"+alan).val("");
+            show_uploaded_files(c,alan);
+        }else{
+            $("#"+alan).val("");
+            Swal.fire('', data.mesajtxt, 'error');
+        }
+        open_loader('C');
+    });
+ 
+
+
+});
+function show_uploaded_files(data,itemname){
+  console.log("show_uploaded_files girdi");
+  
+    try{
+        var a='<ul>';
+        data.forEach(function (c,d){
+            a+='<li id='+d+'><a target="_blank" href="'+c.Filelocation+'">'+c.FileName+'</a> ' +
+                '<a href="javascript:delete_uploaded_file(\''+d+'\',\''+c.Filelocation+'\',\''+itemname+'\')"><i class="fa fa-trash"></i> </a> </li>';
+                
+        });
+        a+='</ul>';
+        $("#DIVFILES_"+itemname).empty().append(a);
+    }catch (e) {
+        $("#DIVFILES_"+itemname).empty()
+    }  
+
+}
+function delete_uploaded_file(id,file,itemname){
+    open_loader('O');
+   
+
+   // JSON.parse($("#blob_"+itemname).val()).splice(id, 1);
+   
+  
+    try{
+        fetch("/api/uploadfile?PROCESS=DELETE&FILELOCATION="+file, {
+            method: 'POST',
+            enctype: 'multipart/form-data',
+            body: ""
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success==true){
+              let a = [];
+              a = JSON.parse($("#blob_"+itemname).val());
+              a.splice(id,1);
+              console.log(a)
+              show_uploaded_files(a,itemname)
+              $("#blob_"+itemname).val(JSON.stringify(a))
+              console.log($("#blob_"+itemname).val());
+              //$("#"+id).remove();
+                
+            
+               // $("#"+itemname).val("");
+            }else{
+                $("#"+itemname).val("");
+                Swal.fire('', data.mesajtxt, 'error');
+            }
+            open_loader('C');
+        });
+    }catch (e){
+
+    }
+    //show_uploaded_files($("#blob_"+itemname).val(""),itemname);
+}
+openedegname="";
+function add_edittable(egname){
+    openedegname=egname
+    sessionStorage.eg_selected=null;
+    $( "#egmodal-body" ).empty().append( '<iframe id="eg_modal_iframe" frameborder="0" src="/eg_page/'+egname+'/'+pageid+'?RW=-1" width="100%" style="height: calc(80vh - 5px)" scrolling="auto"></iframe>' );
+    setTimeout(function (){
+            $("#egmodal-title").empty().text('Yeni Kayıt Ekleme')
+            $("#egmodal").modal('show')
+      },1000);
+}
+function close_egmodal(){
+    $( "#egmodal-body" ).empty();
+    $( "#egmodal" ).modal('hide');
+}
+function edit_edittable(egname,rowid){
+    openedegname=egname
+    let data=JSON.parse(sessionStorage["data_"+egname]);
+    sessionStorage.eg_selected=JSON.stringify(data[rowid]);
+    $( "#egmodal-body" ).empty().append( '<iframe id="eg_modal_iframe" frameborder="0" src="/eg_page/'+egname+'/'+pageid+'?RW='+rowid+'" width="100%" style="height: calc(80vh - 5px)" scrolling="auto"></iframe>' );
+    setTimeout(function (){
+            $("#egmodal-title").empty().text('Yeni Kayıt Ekleme')
+            $("#egmodal").modal('show')
+      },1000);
+}
+function eg_list(egname){
+
+    let res=''
+    try{
+    JSON.parse(sessionStorage["data_"+egname]).forEach(function(v,k){
+        res+='<tr>'
+        JSON.parse(sessionStorage["items_"+egname]).forEach(function (r,i){
+            if(r["itemdefhidden"]=="N"){
+                if(r["itemdeftype"]=='File'){
+
+                    if(typeof v[r.itemdefname]=='string') {
+                        if(v[r.itemdefname].length>3){
+                            var a = JSON.parse(v[r.itemdefname])[0];
+                            res+='<td><a target="_blank" href="'+a["Filelocation"]+'">'+a["FileName"]+'</a></td>';
+                        }else{
+                            res+='<td></td>';
+                        }
+                    }else{
+                        var a = v[r.itemdefname][0];
+                        res+='<td><a target="_blank" href="'+a["Filelocation"]+'">'+a["FileName"]+'</a></td>';
+                    }
+
+
+                }else{
+                    res+='<td>'+v[r.itemdefname]+'</td>';
+                }
+            }
+        });
+        res+='<td><a href="javascript:edit_edittable(\''+egname+'\',\''+k+'\')"><i class="fa fa-edit"></i></a></td>'
+        res+='<tr>'
+    });
+    $("#"+egname+"_tbody").empty().append(res);
+    }catch (e){
+
+    }
+
+}
+var myModalegmodal = document.getElementById('egmodal')
+myModalegmodal.addEventListener('hidden.bs.modal', function (event) {
+  eg_list(openedegname);
+})
+function yeni_surec_baslat(id,processdata=[]){
+	open_loader('O');
+	datas={};
+	datas["txt_prcdefid"]=id.toString();
+	datas["txt_prcdefver"]="1";
+	datas["txt_usercode"]=sessionStorage.usercode;
+	datas["txt_processdata"]=processdata;
+	var sdata='{"request":"5003","MENUID":"9090909","usercode":"'+sessionStorage.usercode+'","data":'+JSON.stringify(datas)+'}'
+	fetch("/api/restapi", {
+    	headers: {
+      	"Content-Type": "application/json; charset=utf-8","token":token
+    },
+    method: 'POST',
+    body: sdata
+   })
+    .then(response =>  response.json())
+    .then(data =>{
+      if(data.success==false){
+          Swal.fire({title:'', html:data.mesajtxt, icon:'error'});
+      }else{
+		parent.open_from('O','/process/form/'+data.rows["stepid"]);
+      }
+    }).then(a=>{
+    	//$("#surec_secim_table").empty();
+    	//$("#artek_form_modal").modal('hide');
+        parent.artek_form_modal_close()
+    	open_loader('C');
+    })
+}
+async function read_excel(itemname){
+  	var filedata=JSON.parse($("#blob_"+itemname).val());
+  	var filepath=filedata[0]["Filelocation"]
+	datas={};
+	datas["txt_usercode"]=sessionStorage.usercode;
+	datas["txt_filepath"]=filepath;
+	var sdata='{"request":"READ","MENUID":"9090909","usercode":"'+sessionStorage.usercode+'","data":'+JSON.stringify(datas)+'}'
+	return fetch("/api/excelread", {
+    	headers: {
+      	"Content-Type": "application/json; charset=utf-8","token":token
+    },
+    method: 'POST',
+    body: sdata
+   }).then(response =>  response.json())
+}
+
+function check_page(){
+  valid=true;
+  tabledata={};
+  tabledeletedata={};
+  $(".is-invalid").removeClass('is-invalid');
+
+  formarr = [];
+  page_items.forEach(function (v, k) {
+    var formdata = {};
+    /*zorunlu alan kontrolü*/
+    if (v.itemdefrequired == "Y" && !$("#" + v.itemdefname).is(":hidden")) {
+      //zorunlu alanlar
+      switch (v.itemdeftype) {
+        case "Button":
+        case "KeyValueTable":
+        case "HtmlTable":
+        case "Image":
+        case "Table":
+        break;
+        case "EditTable":
+            tabledata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["data_"+v.itemdefname])});
+            tabledeletedata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["deleted_"+v.itemdefname])});
+        break;
+        case "EditTableInLine":
+            tabledata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["data_"+v.itemdefname])});
+            tabledeletedata.push({"tablename":v.itemdefname,"tablevalue":JSON.parse(sessionStorage["deleted_"+v.itemdefname])});
+        break;
+        case "File":
+          formdata["itemname"] = v.itemdefname;
+          formdata["itemvalue"] = $("#blob_" + v.itemdefname).val();
+          formdata["itemtype"] = v.itemdeftype;
+          formarr.push(formdata)
+        break;
+          case "CheckboxLink":
+          case "Checkbox":
+          if ($('#' + v.itemdefname).is(':checked')) {
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = "Y";
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          } else {
+            valid = false;
+            $("#" + v.itemdefname).addClass('is-invalid');
+          }
+          break;
+        case "Select2Multiple":
+           if (!$.trim($("#" + v.itemdefname).val())) {
+            valid = false;
+            $("#" + v.itemdefname).addClass('is-invalid');
+
+          } else {
+            var valofselect=$("#" + v.itemdefname).val().join();
+            $("#" + v.itemdefname).addClass('is-valid');
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = valofselect;
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          }
+        break;
+        default:
+          if (!$.trim($("#" + v.itemdefname).val())) {
+            valid = false;
+            $("#" + v.itemdefname).addClass('is-invalid');
+
+          } else {
+            $("#" + v.itemdefname).addClass('is-valid');
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = $("#" + v.itemdefname).val().replace('"','').replace('\'','').replace(/[\r\n]/g, "<br />");
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          }
+          break;
+      }
+
+    } else {
+      switch (v.itemdeftype) {
+        case "Table":
+        case "Button":
+        case "KeyValueList":
+        case "Image":
+        case "HtmlTable":
+        case "KeyValueTable":
+        break;
+        case "EditTable":
+            try{
+              tabledata[v.itemdefname]=JSON.parse(sessionStorage["data_"+v.itemdefname]);
+            }catch (e){
+                tabledata[v.itemdefname]=[];
+            }
+            try{
+              tabledeletedata[v.itemdefname]=JSON.parse(sessionStorage["deleted_"+v.itemdefname]);
+            }catch (e){
+               tabledeletedata[v.itemdefname]=[];
+            }
+            /*tabledata.push({"tablename":v.itemdefname,"tablevalue":sessionStorage["data_"+v.itemdefname])})
+            tabledeletedata[v.itemdefname]=sessionStorage["deleted_"+v.itemdefname];*/
+        break;
+        case "EditTableInLine":
+            try{
+              tabledata[v.itemdefname]=JSON.parse(sessionStorage["data_"+v.itemdefname]);
+            }catch (e){
+                tabledata[v.itemdefname]=[];
+            }
+            try{
+              tabledeletedata[v.itemdefname]=JSON.parse(sessionStorage["deleted_"+v.itemdefname]);
+            }catch (e){
+               tabledeletedata[v.itemdefname]=[];
+            }
+            /*tabledata.push({"tablename":v.itemdefname,"tablevalue":sessionStorage["data_"+v.itemdefname])})
+            tabledeletedata[v.itemdefname]=sessionStorage["deleted_"+v.itemdefname];*/
+        break;
+        case "File":
+          formdata["itemname"] = v.itemdefname;
+          formdata["itemvalue"] = $("#blob_" + v.itemdefname).val();
+          formdata["itemtype"] = v.itemdeftype;
+          formarr.push(formdata)
+        break;
+        case "Checkbox":
+          if ($('#' + v.itemdefname).is(':checked')) {
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = "Y";
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+          } else {
+            formdata["itemname"] = v.itemname;
+            formdata["itemvalue"] = "N";
+            formdata["itemype"] = v.itemtype;
+            formarr.push(formdata)
+
+          }
+          break;
+        case "Select2Multiple":
+            var valofselect=$("#" + v.itemdefname).val().join();
+            $("#" + v.itemdefname).addClass('is-valid');
+            formdata["itemname"] = v.itemdefname;
+            formdata["itemvalue"] = valofselect;
+            formdata["itemtype"] = v.itemdeftype;
+            formarr.push(formdata)
+
+        break;
+
+        default:
+    console.log(v.itemdefname+' : '+$("#" + v.itemdefname).val());
+    let itmval=$("#" + v.itemdefname).val();
+    if(itmval!=undefined && itmval!='') itmval=itmval.replace('\'','');
+          formdata["itemname"] = v.itemdefname;
+          formdata["itemvalue"] = itmval;
+          formdata["itemtype"] = v.itemdeftype;
+          formarr.push(formdata)
+          break;
+      }
+
+    }
+
+  });
+
+  if (!valid) {
+      open_loader('C');
+      $("btn_savepage").attr("disabled", false);
+      valid = false;
+      
+      swalToast.fire({
+        icon: 'error',
+        title: 'Eksik Bilgiler Mevcut Lütfen Kontrol ediniz.'
+      })         
+  }    
+
+return valid;
+}
+
+function btn_locked(durum){
+    $('#btn_locked').prop('disabled', durum);
+}
