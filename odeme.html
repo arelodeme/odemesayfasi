@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://arelim.arel.edu.tr/tr/odeme# -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARELim.. </title>
+    <link href="https://arelim.arel.edu.tr/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="./tabler.css" rel="stylesheet">
+    <link href="./tabler-vendors.css" rel="stylesheet">
+    <link href="./sweetalert2.min.css" rel="stylesheet">
+    <link href="./all.min.css" rel="stylesheet">
+	<style>
+        .item_hide{display:none;}
+	</style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2T090QV9QV');
+</script>
+      
+        <title>ARELim Online Ödeme ve İşlemler</title>
+    <meta name="description" content="Arel Üniversitesi Portalı Online Ödeme ve İşlemler">
+    <link rel="stylesheet" href="./summernote-bs4.min.css">
+<link href="./select2.min.css" rel="stylesheet">
+    <style>
+    .form-group {
+    margin-bottom: 1px;
+}
+    label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+}
+    .col-form-label {
+    padding-top: calc(0.375rem + 1px);
+    /* padding-bottom: calc(0.375rem + 1px); */
+         padding-bottom:1px;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+
+
+
+    
+        body{
+background-image: url(../../static/gorsel-site.jpg) ; 
+}
+
+#girisyap{
+height:35px;
+}
+
+
+#KayitYenileme{
+height:35px;
+}
+
+#captchaContainer {
+      display: flex;
+      align-items: center;
+}
+
+#captchaCanvas {
+      border: 1px solid #ccc;
+      margin-right: 10px;
+}
+
+#captchaInput {
+      height: 38px; 
+}
+
+
+#captchaContainer2 {
+      display: flex;
+      align-items: center;
+}
+
+#captchaCanvas2 {
+      border: 1px solid #ccc;
+      margin-right: 10px;
+}
+
+#captchaInput2 {
+      height: 38px; 
+}
+    
+</style>
+<script type="text/javascript" src="./qr-code-styling.js.indir"></script>
+
+  <style>.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:"";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}</style><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style></head>
+  <body class="antialiased">
+  
+    <div class="page">
+        <div class="content">
+        <div class="container-xl pt-0">
+         
+
+       <header class="navbar navbar-expand-md navbar-light d-print-none mb-3" style="background: #034a92">
+        <div class="container-xl">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+            <a href="https://arelim.arel.edu.tr/tr/odeme#">
+
+              <img src="./arel-universitesi-logo.svg" alt="Tabler" class="navbar-brand-image">
+            </a>
+          </h1>
+          <div class="collapse navbar-collapse" id="navbar-menu">
+              <div class="text-white font-weight-bold text-center text-h2 w-75"> Online Ödeme ve İşlemler</div>
+            <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
+
+            <ul class="navbar-nav d-lg-none">
+                 <li class="nav-item "><a href="https://arelim.arel.edu.tr/tr/odeme" class="nav-link text-white">
+                    <span class="nav-link-icon"><i class="fa fa-arrow-right me-2"></i></span>Tümünü Göster</a>
+                 </li>
+                
+                 
+            
+
+            </ul>
+
+
+
+              <div class="ms-md-auto ps-md-4 py-2 py-md-0 me-md-4 order-first order-md-last flex-grow-1 flex-md-grow-0">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+
+
+		
+	<div class="row">
+	<div class="col-lg-1"><r1></r1></div>
+	
+	<div class="col-lg-9" style="background-color:#FFFFFF;padding: 10px;box-shadow: 3px 3px 4px #000;">
+	
+				<div class="row">
+					<div class="col-lg-3"><div class="" id="INP_btn5"><button onclick="javascript:changed(&#39;btn5&#39;)" class="btn  btn btn-azure  w-100 mt-3" id="btn5" name="btn5">Ödeme Seçenekleri</button></div></div>
+					<div class="col-lg-2"><div class="hide_itm" id="INP_btn1"><button onclick="javascript:changed(&#39;btn1&#39;)" class="btn  btn btn-warning w-100 mt-3" id="btn1" name="btn1">Kayıt Rehberi</button></div></div>
+					<div class="col-lg-2"><div class="hide_itm" id="INP_btn2"><button onclick="javascript:changed(&#39;btn2&#39;)" class="btn  btn btn-info w-100 mt-3" id="btn2" name="btn2">Burs Başvurusu</button></div></div>
+					<div class="col-lg-2"><div class="hide_itm" id="INP_btn3"><button onclick="javascript:changed(&#39;btn3&#39;)" class="btn  btn btn-danger w-100 mt-3" id="btn3" name="btn3">İletişim</button></div></div>
+					<div class="col-lg-3"><div class="" id="INP_btn4"><button onclick="javascript:changed(&#39;btn4&#39;)" class="btn  btn btn-success  w-100 mt-3" id="btn4" name="btn4">Whatsapp</button></div></div>
+				</div>
+
+		<br>
+
+		<div class="alert alert-danger" role="alert">
+ 			<center><b> Yeni Kazanan Öğrencilerimiz; 'Yeni Kayıt' ödemelerini aşağıdaki alanları doldurarak 'Ödeme sayfasını aç' butonuna basarak yapabilirler.</b></center>
+		</div> 
+		
+<div class="hide_itm" id="INP_ayrackybtn"><button onclick="javascript:changed(&#39;ayrackybtn&#39;)" class="btn  btn btn-primary btn-sm w-100" id="ayrackybtn" name="ayrackybtn">Yeni Kayıt</button></div><div class="form-group row " id="INP_tckimlikno"><label class="form-label col-lg-4 col-form-label" id="LBL_tckimlikno"><span class="text-danger">*</span>T.C. Kimlik No</label><div class="col"><input autocomplete="off" onchange="javascript:changed(&#39;tckimlikno&#39;)" type="text" class="form-control form-control-sm " id="tckimlikno" name="tckimlikno" placeholder="" maxlength="" minlength="" value=""><div class="invalid-feedback">Lütfen değer giriniz</div></div></div><div class="form-group row hide_itm" id="INP_babadi"><label class="form-label col-lg-4 col-form-label" id="LBL_babadi">Baba Adı</label><div class="col"><input autocomplete="off" onchange="javascript:changed(&#39;babadi&#39;)" type="text" class="form-control form-control-sm " id="babadi" name="babadi" placeholder="" maxlength="" minlength="" value=""><div class="invalid-feedback">Lütfen değer giriniz</div></div></div><div class="form-group row " id="INP_dtarih"><label class="form-label col-lg-4 col-form-label" id="LBL_dtarih"><span class="text-danger">*</span>Doğum Tarihi</label><div class="col"><input autocomplete="off" onchange="javascript:changed(&#39;dtarih&#39;)" type="date" class="form-control form-control-sm " id="dtarih" name="dtarih" placeholder="" value=""><div class="invalid-feedback">Lütfen değer giriniz</div></div></div><div class="form-group  " id="INP_kisiselverikvk"><label class="form-check"><input onchange="javascript:changed(&#39;kisiselverikvk&#39;)" class="form-check-input" type="checkbox" value="Y" id="kisiselverikvk" name="kisiselverikvk"><span id="LBL_kisiselverikvk"><a href="javascript:checkbox_link(&#39;kisiselverikvk&#39;)" class="form-check-label"><span class="text-danger">*</span>Kişisel verilerimin işlenmesini, kullanımını ve paylaşımını kabul ediyorum!</a></span></label></div>
+    <!--<div class="row">
+      <div class="col-md-6">
+        <div id="captchaContainer">
+          <canvas id="captchaCanvas" width="150" height="40"></canvas> 
+          <input type="text" id="captchaInput" class="form-control" placeholder="Kodu giriniz">
+        </div>
+      </div>
+    </div>-->
+<div class="" id="INP_girisyap"><button onclick="javascript:changed(&#39;girisyap&#39;)" class="btn  btn btn-blue btn-sm w-100 mt-3" id="girisyap" name="girisyap">Ödeme sayfasını aç</button></div>
+
+			<div>
+	
+			</div>
+
+<hr style="height:10px;border-width:0;background-color:black">		
+		
+			<div class="alert alert-primary" role="alert">
+				<center><b> Aktif Öğrencilerimiz; tüm ödeme işlemlerini aşağıdaki alana öğrenci numaralarını yazarak yapabilirler.</b></center>
+			</div>
+		
+<div class="hide_itm" id="INP_ayracykbtn"><button onclick="javascript:changed(&#39;ayracykbtn&#39;)" class="btn  btn btn-primary btn-lg w-100 mt-3" id="ayracykbtn" name="ayracykbtn">Kayıt Yenileme Yapmak için  Öğrenci numaranızı yazarak kayıt yenilemenizi yapabilirsiniz</button></div><div class="form-group row " id="INP_ogrencino"><label class="form-label col-lg-4 col-form-label" id="LBL_ogrencino"><span class="text-danger">*</span>Öğrenci Numarası</label><div class="col"><input autocomplete="off" onchange="javascript:changed(&#39;ogrencino&#39;)" type="text" class="form-control form-control-sm mt-3" id="ogrencino" name="ogrencino" placeholder="" maxlength="" minlength="" value=""><div class="invalid-feedback">Lütfen değer giriniz</div></div></div>
+<!--<div class="row">
+      <div class="col-md-6 mt-2">
+        <div id="captchaContainer2">
+          <canvas id="captchaCanvas2" width="150" height="40"></canvas> 
+          <input type="text" id="captchaInput2" class="form-control" placeholder="Kodu giriniz">
+        </div>
+      </div>
+</div>-->
+<button id="odemeYapBtn" class="btn btn-blue btn-sm w-100 mt-3">Ödeme Yapmak İstiyorum</button>
+
+		
+	</div>
+
+    	<div class="modal modal-blur fade" id="odenecekliste-modal" tabindex="-1" role="dialog" aria-hidden="true">
+     		 <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
+      			  <div class="modal-content">
+         			 <div class="modal-header">
+            			<h5 class="modal-title">Online Ödeme Sistemi</h5>
+            			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            		 </div>
+          <div class="modal-body p-0" id="odeneceklistebody">
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal modal-blur fade" id="ikaz-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Online Ödeme Sistemi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0" id="ikazmodalbody">
+          
+          <iframe id="frameikazmodal" frameborder="0" src="./odeme(1).html" width="100%" style="height: calc(100vh - 5px)" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+          <div class="modal modal-blur fade" id="modal-duyuru" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">KİŞİSEL VERİLERİN İŞLENMESİNE, KULLANIMINA VE PAYLAŞIMINA DAİR RIZA BEYANI</h5>
+
+          </div>
+          <div class="modal-body">
+            <p>Sayın Veri Sahibi; 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, gerçek bir kişinin kimliğini belirli ya da belirlenebilir bir hale getirmeye yarayan her türlü bilgi kişisel veri kapsamındadır.</p>
+            <p>İşbu bağlamda, kişisel verileriniz İstanbul Arel Üniversitesi Aydınlatma Metni’nde Veri Sorumlusu sıfatıyla İstanbul Arel Üniversitesi tarafından, Üniversite Bilgi Sistemi’ ne işlenecek, depolanacak, muhafaza edilecek, gerektiğinde güncellenecek, Aydınlatma Metni’nde belirtilen haller ile mevzuat ve yasal sınırlar dahilinde 3.kişilere açıklanabilecek/aktarılabilecek ve KVK Kanunu’nda belirtilen şekillerde işlenebilecektir.</p>
+            <br>
+            <p>KVK Kanunu’nun 11. maddesi gereğince Üniversitemize başvurarak, kişisel verilerinizin;
+            <br>
+            </p><p>İşlenip işlenmediğini öğrenme,</p>
+            <p>İşlenmişse bilgi talep etme,</p>
+            <p>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</p>
+            <p>Yurt içinde veya yurt dışında aktarıldığı 3. kişileri bilme,</p>
+            <p>Verileriniz eksik veya yanlış işlenmişse düzeltilmesini isteme,</p>
+            <p>KVK Kanunu’nun 7. maddesi çerçevesinde silinmesini/yok edilmesini isteme,</p>
+            <p>Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme hakkına sahipsiniz.</p>
+            <p>Yukarıda yer alan İstanbul Arel Üniversitesi’nin açıklaması ve ekte yer alan Aydınlatma Metni doğrultusunda KVKK gereğince, İstanbul Arel Üniversitesi ile paylaştığım kişisel veri veya özel nitelikli kişisel veri teşkil eden bilgilerimin ;</p>
+            <p>Eğitim, öğretim faaliyetlerinin sürdürülebilmesi, Üniversitemizin idari ve akademik süreçlerinin yürütülmesi, geliştirilmesi ve eğitim faaliyetleri kapsamında bu hizmetlerden yararlanılması, öğrenci kayıt işlemlerinin yürütülmesi, Üniversite tarafından sunulan eğitim öğretim ve hizmetlerin ilgili kişi/kurum vb. 3. şahıslara önerilmesi, tanıtılması ve sunulması için gerekli faaliyetlerin planlanması ve uygulanması, Üniversitemizin ihtiyacı olan açık pozisyonlara uygun personel temini- personel özlük dosyasının oluşturulması gibi insan kaynakları politikalarının oluşturulması ve bağlı süreçlerin yürütülmesi, İş Kanunu, Sosyal Güvenlik Kanunu ve tüm yasal mevzuat ile iş sağlığı ve iş güvenliği çerçevesinde yükümlülüklerin yerine getirilmesi ve gerekli tedbirlerin alınması, Üniversite ile iş ilişkisi içerisinde olan gerçek veya tüzel kişiler ile yapılan sözleşmeler veya yürütülen faaliyetler çerçevesinde; hukuki ve ticari yükümlülüklerin gerçekleştirilmesi için, Üniversite tarafından iş ortağı, çözüm ortağı, müşteri ve tedarikçiler ile yapılan sözleşmelerden kaynaklanan yükümlülüklerin ifası, hakların korunması, ticari ve hukuki değerlendirme süreçleri, mali işlerin yürütülmesi, Üniversite tarafından yürütülen araştırmalar, sosyal sorumluluk çalışmaları, satın alma süreçleri ( talep, teklif, değerlendirme, sipariş, bütçe oluşturma, sözleşme, ödeme) ile ilgili, Üniversite lokasyonlarının güvenliği ve denetimi ile öğrencilerinin/çalışanlarının/ziyaretçilerinin can ve mal güvenliğinin korunması, yasal yükümlülüklerin, adli ve/veya idari tüm kurum ve/veya kuruluşların taleplerinin, mevzuat ve /veya ilgili kurum ve/veya kuruluşlarca beyan edilen gerekliliklerin yerine getirilmesi, listeleme-raporlama-analiz gibi istatistiksel çalışmalar yapmak, Üniversite tarafından sunulan ürün ve hizmetlerden öğrencileri, çalışanları ve ilgili kişileri faydalandırmak amacı ile ilgili birimler tarafından gerekli çalışmaları yapmak, Üniversite'nin eğitim politikaları ve süreçlerinin planlanması ve icra edilmesi, akademik ve idari faaliyetlerin yürütmek, Üniversite ile iş ilişkisi içerisinde olan kişiler/firmaların hukuki ve ticari güvenliğinin sağlamak, Üniversite tesis ve binalarının iç ve dış lokasyonlarında fiziksel güvenliğin ve denetimin sağlamak, hukuki, mali ve idari uyum süreçlerini yürütmek, mali, hukuki ve idari işleri yerine getirmek, Üniversitenin insan kaynakları politikaları ve süreçlerinin planlamak ve icra etmek amacıyla işlenmesine, kullanılmasına ve öğrenci ve mezunlarına, Üniversite yetkililerine ve birimlerine, üçüncü kişilere, Üniversite olarak faaliyetlerimizi yürütmek amacıyla sözleşmesel olarak hizmet aldığımız, işbirliği yaptığımız iş ortaklarımız ve tedarikçilerimiz dahil yurt içi ve/veya yurtdışı tüm kurum ve kuruluşlara, Üniversite bünyesindeki birimlerde ve/veya üniversite dışındaki kuruluşlarda staj/uygulama eğitimi faaliyetleri kapsamında öğrenci hak ve yükümlülüklerinin korunması ve yerine getirilmesinin sağlanması amacıyla işbirliği yapılan her türlü kurum, kuruluş ve/veya işletmelere, Kişisel Verileri Koruma Kurumu’na, Sosyal Güvenlik Kurumu’na, tüm Bakanlıklara ve Yükseköğretim Kurumu'na, kanunen yetkili kamu kurumlarına, yargı organlarına, özel kişi ve/veya kurumlara KVK Kanunu'nun 8. ve 9. maddelerinde belirtilen kişisel veri işleme şartları ve amaçları çerçevesinde aktarılmasına mevzuat kapsamındaki haklarım saklı kalmak kaydı ile açıkça izin veriyorum.</p>
+            <p>İstanbul Arel Üniversitesi ile paylaştığım kişisel verilerin, sahibinin açık rızası olmadan ve/veya hukuka aykırı olarak elde edildiğinin tespiti halinde; İstanbul Arel Üniversitesi nezdinde ilgili 3. Şahıslar, veri sahipleri veya Kişisel Verileri Koruma Kurulu ve diğer idari ve yargı organları tarafından yaptırım uygulanması ve Üniversite’nin işbu sebeple zarara uğraması halinde her türlü cezai, hukuki ve her türlü zararı tazmin sorumluluğunun tarafıma ait olduğunu, yukarıdaki bilgilendirme metnini aşağıda belirttiğim tarihte okuduğumu, incelediğimi ve yukarıda belirtilen tüm hususları bilerek, anlayarak kabul ettiğimi, özgür irademle kişisel verilerimin KVK Kanunu’nda tanımlanan kapsamda işlenmesine, kullanılmasına ve aktarılmasına muvafakat ettiğimi kabul, beyan ve taahhüt ederim.</p>
+            <p>İşbu Rıza Beyanı tarafımdan yazılı olarak geçersizliği beyan edilmediği sürece geçerlidir</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning me-auto" data-bs-dismiss="modal">Okudum Anladım</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+        </div>
+
+        <div class="modal modal-blur fade" id="modal-artek-forms-ic" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-full-width" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="modal-artek-forms-body-ic">
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal modal-blur fade" id="egmodal" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="egmodal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0" id="egmodal-body">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+               <div class="modal modal-blur fade" id="artek_form_modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="-title">Rezervasyon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0" id="artek_form_modal_body">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+    <script src="./bootstrap.bundle.min.js.indir"></script>
+    <script src="./jquery.slim.min.js.indir"></script>
+    <script src="./sweetalert2.all.min.js.indir"></script>
+    <script src="./select2.full.min.js.indir"></script>
+     <script src="./tabler.js.indir"></script>
+  <script>
+    $(function () {
+        token='260ecc6a-17ea-11f0-b312-0050568417ff';
+    });
+
+    function open_from_modal(url){
+        open_loader('O');
+        $( "#artek_form_modal_body" ).empty().append( '<iframe id="artek_form_iframe" frameborder="0" src="'+url+'" width="100%" style="height: calc(100vh - 255px)" scrolling="auto"></iframe>' );
+        setTimeout(function (){
+             $("#artek_form_modal").modal('show');
+        },1000);
+        setTimeout(function (){open_loader('C');},750)
+    }
+    function modal_form_close(){
+        $("#modal-artek-form-iframe").attr('src','#');
+         loacation.reload(true);
+         setTimeout(function(){ $("#artek_form_modal").modal('hide');},500);
+    }
+
+
+
+  </script>
+  
+    <script src="./summernote-bs4.js.indir"></script>
+    <script src="./select2.min.js.indir"></script>
+    <script src="./pages(1).js.indir"></script>
+    <script>
+        
+            page_data="";
+        
+        sessionStorage.usercode='WebUser'
+        page_items=[{"itemdefname": "dtarih", "itemdefrequired": "Y", "itemdeftype": "Date"}, {"itemdefname": "btn2", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "btn1", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "btn3", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "kisiselverikvk", "itemdefrequired": "Y", "itemdeftype": "CheckboxLink"}, {"itemdefname": "btn4", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "odemesorgula", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "ogrencino", "itemdefrequired": "Y", "itemdeftype": "Text"}, {"itemdefname": "ayrackybtn", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "ayracykbtn", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "tckimlikno", "itemdefrequired": "Y", "itemdeftype": "Text"}, {"itemdefname": "girisyap", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "btn5", "itemdefrequired": "N", "itemdeftype": "Button"}, {"itemdefname": "babadi", "itemdefrequired": "N", "itemdeftype": "Text"}];
+        pageid=80;
+        dataid="0";
+        $(function() {
+            setTimeout(function (){set_pagedata();},500);
+            setTimeout(function (){
+                    //userdata=JSON.parse(sessionStorage.getItem('userdata'))
+                    //menudata=parent.get_selectedmenudata();
+                    //formcloasetype="G";
+                    try{onload();}catch(e){}
+                    $(".select2").select2();
+
+                                        $('.summernote').summernote({toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'italic', 'underline', 'clear']],
+    ['color', ['color']]
+  ],});
+
+            },1000);
+        });
+        
+                  /*
+      var canvas = document.getElementById("captchaCanvas");
+      var ctx = canvas.getContext("2d");
+      
+      var canvas2 = document.getElementById("captchaCanvas2");
+      var ctx2 = canvas2.getContext("2d");
+      
+      function generateCaptcha() {
+        var backgroundColor = getRandomColor();
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        var captchaText = "";
+        var possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 6; i++)
+          captchaText += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
+
+        var textColor = getContrastColor(backgroundColor);
+        ctx.fillStyle = textColor;
+        ctx.font = "20px Arial"; 
+        ctx.textAlign = "center";
+        ctx.fillText(captchaText, canvas.width / 2, canvas.height / 2 + 7); 
+
+        for (var i = 0; i < 30; i++) {
+          ctx.fillStyle = getRandomColor();
+          ctx.beginPath();
+          ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 1, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+
+        return captchaText;
+      }
+      
+      function generateCaptcha2() {
+        var backgroundColor = getRandomColor();
+        ctx2.fillStyle = backgroundColor;
+        ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
+
+        var captchaText2 = "";
+        var possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 6; i++)
+          captchaText2 += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
+
+        var textColor = getContrastColor(backgroundColor);
+        ctx2.fillStyle = textColor;
+        ctx2.font = "20px Arial"; 
+        ctx2.textAlign = "center";
+        ctx2.fillText(captchaText2, canvas2.width / 2, canvas2.height / 2 + 7); 
+
+        for (var i = 0; i < 30; i++) {
+          ctx2.fillStyle = getRandomColor();
+          ctx2.beginPath();
+          ctx2.arc(Math.random() * canvas2.width, Math.random() * canvas2.height, 1, 0, 2 * Math.PI);
+          ctx2.fill();
+        }
+
+        return captchaText2;
+      }
+
+      
+      function getRandomColor() {
+    var r = Math.floor(Math.random() * 256); 
+    var g = Math.floor(Math.random() * 256); 
+    var b = Math.floor(Math.random() * 256);
+
+    var color = '#' + ('0' + r.toString(16)).slice(-2) + ('0' + g.toString(16)).slice(-2) + ('0' + b.toString(16)).slice(-2);
+
+    return color;
+}
+		
+		function getContrastColor(backgroundHexColor) {
+		    var bR = parseInt(backgroundHexColor.substr(1, 2), 16);
+		    var bG = parseInt(backgroundHexColor.substr(3, 2), 16);
+		    var bB = parseInt(backgroundHexColor.substr(5, 2), 16);
+		
+		    var averageRGB = (bR + bG + bB) / 3;
+		
+		    var textColor = (averageRGB > 128) ? '#000000' : '#ffffff';
+		
+		    return textColor;
+		}
+		
+
+      var captchaText = generateCaptcha();
+
+      
+      document.getElementById("captchaCanvas").addEventListener("click", function () {
+        captchaText = generateCaptcha();
+      });
+      
+      //İkinci capthca
+
+      
+      var captchaText2 = generateCaptcha2();      
+      document.getElementById("captchaCanvas2").addEventListener("click", function () {
+        captchaText2 = generateCaptcha2();
+      });
+      
+*/
+
+
+function girisyap2_onclick() {
+
+	if (document.getElementById('kisiselverikvk').checked) {
+		open_loader('O');
+		b = {};
+		b["txt_kimlikno"] = $("#tckimlikno").val();
+		//	b["txt_babaadi"]=$("#babadi").val();
+		b["txt_dtarih"] = $("#dtarih").val();
+		server_proses("43", b).then(data => {
+			if (data.success == false) {
+				Swal.fire('', data.mesajtxt, 'error');
+				open_loader('C');
+			} else {
+
+				//         $( "#ikazmodalbody" ).empty().append( '' );
+				//<iframe frameborder="0" src="+'" width="100%" style="height: calc(100vh - 5px)" scrolling="no"></iframe>
+
+				document.getElementById("frameikazmodal").src = '/newstudent?ON=' + data.rows[0]["ogrencino"] + '&si=' + data.rows[0]["stepid"];
+				setTimeout(function () {
+					$("#ikaz-modal").modal('show');
+				}, 1000);
+			}
+		});
+
+		setTimeout(function () { open_loader('C'); }, 1500)
+
+
+	} else {
+		Swal.fire('', 'Lütfen Rıza Metnini Onaylayınız', 'error');
+	}
+
+}
+
+function btn1_onclick() {
+	var url = "/static/pdf/NisanErkenKayitRehberi.pdf";
+	window.open(url);
+}
+function btn2_onclick() {
+	var url = "/static/pdf/burs.pdf";
+	window.open(url);
+}
+function btn3_onclick() {
+	var url = "/static/pdf/iletisim.pdf";
+	window.open(url);
+}
+function btn4_onclick() {
+	var url = "https://wa.me/05395506646";
+	window.open(url);
+}
+
+function btn5_onclick() {
+	var url = "/static/pdf/2024-2025_Kayıt_Yenileme_Duyuru.pdf";
+	window.open(url);
+}
+
+function checkbox_link(item) {
+	//kisiselverikvk
+	$("#modal-duyuru").modal('show');
+}
+
+
+
+function odeme_basla(ogrno, stpid) {
+	document.getElementById("frameikazmodal").src = '/newstudent?ON=' + ogrno + '&si=' + stpid;
+	setTimeout(function () {
+		$("#ikaz-modal").modal('show');
+	}, 1000);
+}
+
+
+function KayitYenileme_onclick() {
+
+	var ogrencino = $("#ogrencino").val();
+	var os = {};
+	os["txt_query"] = "select count(ogrencino) from proliz.ogrencilistesi where ogrencino = " + "'" + ogrencino + "'";
+
+	server_proses("6000", os).then(function (data) {
+		if ('0' == data.rows[0]["count"]) {
+			swal.fire(ogrencino + ' Nolu Öğrenci Arel öğrenci listesinde yoktur. Öğrenci numaranızı kontrol ettikten sonra öğrenci işleri ile görüşünüz');
+			return 0;
+		}
+
+		else {
+			open_loader('O');
+			var s = {};
+			s["txt_query"] = "select stepid from process.steps where processid =(select processid  from odeme.fis where ogrencino = " + "'" + ogrencino + "'" + " and kayityil ='23-24') and stepnumber = 20";
+
+			server_proses("6000", s).then(function (datas) {
+
+				document.getElementById("frameikazmodal").src = '/newstudent?ON=' + ogrencino + '&si=' + datas.rows[0]["stepid"];
+				setTimeout(function () {
+					$("#ikaz-modal").modal('show');
+				}, 500);
+			});
+			open_loader('C');
+		}
+	}); //öğrencilistesinin sorgulandığı  fonksiyonu kapatır
+}
+
+function girisyap_onclick() {
+	 /*
+     var capthcaInput = document.getElementById("captchaInput").value;
+     
+     if (capthcaInput === captchaText) {
+          captchaText = generateCaptcha();
+      } else {
+		  Swal.fire('', 'Doğrulama kodu yanlış!', 'error');
+          captchaText = generateCaptcha();
+          return;
+    }
+    */
+
+	if ($("#tckimlikno").val() == "" || $("#dtarih").val() == "") {
+		Swal.fire('', 'Lütfen doldurulması zorunlu alanları doldurunuz!', 'error');
+	}
+	else {
+		if (document.getElementById('kisiselverikvk').checked) {
+
+			$("#odenecekler_listesi").empty();
+			open_loader('O');
+			b = {};
+			b["txt_kimlikno"] = $("#tckimlikno").val();
+			//		b["txt_babaadi"]=$("#babadi").val();
+			b["txt_dtarih"] = $("#dtarih").val();
+			server_proses("46", b).then(data => {
+				if (data.success == false) {
+					Swal.fire('', data.mesajtxt, 'error');
+					open_loader('C');
+				} else {
+					var v_html = '<table class="table table-sm table-responsive"><tr><th></th><th>Öğrenci No</th><th>Adı Soyadı</th><th>İşlem Tipi</th><th>Ödenecek Tutar</th><th>Tahsil Edilen</th></tr>'
+					var v_btn = ''
+					data.rows.forEach(function (v, k) {
+						console.log(v.uyruk);
+						if (v.uyruk == 'TÜRKİYE') {
+
+							if (v.button == 'ok') {
+								v_btn = '<i class="fa fa-check"></i>';
+								v_html += '<tr><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.odenecek + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							} else {
+								v_btn = '<a class="btn btn-sm" href="javascript:odeme_basla(\'' + v.ogrencino + '\',\'' + v.stepid + '\')"><i class="fa fa-edit text-warning"></i> Ödeme Yap</a>';
+								v_html += '<tr class="bg-success text-white"><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.odenecek + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							}
+						}
+						else {
+							if (v.button == 'ok') {
+								v_btn = '<i class="fa fa-check"></i>';
+								v_html += '<tr><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.dvztutar + ' USD' + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							} else {
+								v_btn = '<a class="btn btn-sm" href="javascript:odeme_basla(\'' + v.ogrencino + '\',\'' + v.stepid + '\')"><i class="fa fa-edit text-warning"></i> Ödeme Yap</a>';
+								v_html += '<tr class="bg-success text-white"><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.dvztutar + ' USD' + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							}
+						}
+					});
+
+					v_html += '</table>';
+					console.log(v_html);
+					$("#odeneceklistebody").empty().append(v_html);
+					$("#odenecekliste-modal").modal('show')
+				}
+			});
+
+			setTimeout(function () { open_loader('C'); }, 1500)
+
+
+		} else {
+			Swal.fire('', 'Lütfen Rıza Metnini Onaylayınız', 'error');
+		}
+	}
+
+} 
+
+document.getElementById("odemeYapBtn").addEventListener("click", function () {
+  
+  Swal.fire({
+    title: 'Online Ödeme Sistemi',
+    html: `
+      <style>
+        .swal2-popup .swal2-html-container table {
+          width: 100%;
+          font-size: 14px;
+          border-collapse: collapse;
+        }
+        .swal2-popup table th, .swal2-popup table td {
+          border: 1px solid #ccc;
+          padding: 5px;
+          text-align: center;
+        }
+        .status-yes {
+          color: green;
+          font-weight: bold;
+        }
+        .status-wait {
+          color: orange;
+          font-weight: bold;
+        }
+        .status-error {
+          color: red;
+          font-weight: bold;
+        }
+      </style>
+      <table>
+        <thead>
+          <tr>
+            <th>Durum</th>
+            <th>Öğrenci No</th>
+            <th>İşlem Tipi</th>
+            <th>Ödenecek Tutar</th>
+            <th>Tahsil Edilen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="status-yes">✔ Mali Onay Verilmiştir.</td>
+            <td>210303003</td>
+            <td>21-22 Yeni Kayıt</td>
+            <td>16,013.94</td>
+            <td>16,014</td>
+          </tr>
+          <tr>
+            <td class="status-yes">✔ Mali Onay Verilmiştir.</td>
+            <td>210303003</td>
+            <td>22-23 Erken Kayıt Yenileme</td>
+            <td>22,419.58</td>
+            <td>22,419.58</td>
+          </tr>
+          <tr>
+            <td class="status-yes">✔ Mali Onay Verilmiştir.</td>
+            <td>210303003</td>
+            <td>23-24 Kayıt Yenileme</td>
+            <td>56,048.78</td>
+            <td>56,048.78</td>
+          </tr>
+          <tr>
+            <td class="status-yes">✔ Mali Onay Verilmiştir</td>
+            <td>210303003</td>
+            <td>24-25 Erken Kayıt Yenileme</td>
+            <td>95,135.42</td>
+            <td>95,135.42</td>
+          </tr>
+          <tr>
+            <td class="status-error">❗ Öğrenci Hata Bildirimi</td>
+            <td>210303003</td>
+            <td>25-26 Erken Kayıt Yenileme İndirimi</td>
+            <td>216,181.80</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    `,
+    width: '80%',
+    confirmButtonText: 'Tamam',
+  });
+});
+
+
+function odemesorgula_onclick() {
+	 /*
+     var capthcaInput2 = document.getElementById("captchaInput2").value;
+     
+     if (capthcaInput2 === captchaText2) {
+          captchaText2 = generateCaptcha2();
+      } else {
+		  Swal.fire('', 'Doğrulama kodu yanlış!', 'error');
+          captchaText2 = generateCaptcha2();
+          return;
+    }
+    */
+    
+	if ($("#ogrencino").val() == "") {
+		Swal.fire('', 'Lütfen doldurulması zorunlu alanları doldurunuz!', 'error');
+	}
+	else {
+
+			$("#odenecekler_listesi").empty();
+			open_loader('O');
+			b = {};
+			b["txt_ogrencino"] = $("#ogrencino").val();
+			server_proses("13114", b).then(data => {
+				if (data.success == false) {
+					Swal.fire('', data.mesajtxt, 'error');
+					open_loader('C');
+				} else {
+					var v_html = '<table class="table table-sm table-responsive"><tr><th></th><th>Öğrenci No</th><th>Adı Soyadı</th><th>İşlem Tipi</th><th>Ödenecek Tutar</th><th>Tahsil Edilen</th></tr>'
+					var v_btn = ''
+					data.rows.forEach(function (v, k) {
+						console.log(v.uyruk);
+						if (v.uyruk == 'TÜRKİYE') {
+
+							if (v.button == 'ok') {
+								v_btn = '<i class="fa fa-check"></i>';
+								v_html += '<tr><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.odenecek + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							} else {
+								v_btn = '<a class="btn btn-sm" href="javascript:odeme_basla(\'' + v.ogrencino + '\',\'' + v.stepid + '\')"><i class="fa fa-edit text-warning"></i> Ödeme Yap</a>';
+								v_html += '<tr class="bg-success text-white"><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.odenecek + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							}
+						}
+						else {
+							if (v.button == 'ok') {
+								v_btn = '<i class="fa fa-check"></i>';
+								v_html += '<tr><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.dvztutar + ' USD' + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							} else {
+								v_btn = '<a class="btn btn-sm" href="javascript:odeme_basla(\'' + v.ogrencino + '\',\'' + v.stepid + '\')"><i class="fa fa-edit text-warning"></i> Ödeme Yap</a>';
+								v_html += '<tr class="bg-success text-white"><td>' + v_btn + '</td><td>' + v.stepname + '</td><td>' + v.ogrencino + '</td><td>' + v.siptip + '</td><td>' + v.dvztutar + ' USD' + '</td><td>' + v.tahsiledilen + '</td></tr>'
+							}
+						}
+					});
+
+					v_html += '</table>';
+					console.log(v_html);
+					$("#odeneceklistebody").empty().append(v_html);
+					$("#odenecekliste-modal").modal('show')
+				}
+			});
+
+			setTimeout(function () { open_loader('C'); }, 1500)
+
+	}
+
+} 
+        
+    </script>
+
+  
+</div></body></html>
